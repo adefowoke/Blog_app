@@ -1,9 +1,13 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.contrib.auth.forms import UserCreationForm
+#from .forms import CustomUserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
+from django.views.generic import CreateView
+
+
+from django.contrib.auth.forms import UserCreationForm
 
 
 class SignUpView(generic.CreateView):

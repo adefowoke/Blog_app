@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from environs import Env
+
+env = Env()
+env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-g447==x4mhe354-c9=hoqm)ffjs&b+jegl($2&8a#6%vg3spgb'
+SECRET_KEY = env.str("SECRET_KEY") #'django-insecure-g447==x4mhe354-c9=hoqm)ffjs&b+jegl($2&8a#6%vg3spgb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DEBUG",default=False)  # True
 
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -38,6 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+
+    # Local
+    # 'accounts',
+    # 'pages',
+    'articles',
 ]
 
 MIDDLEWARE = [
@@ -75,10 +84,10 @@ WSGI_APPLICATION = 'first_django_project.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': env.dj_db_url("DATABASE_URL")#{
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': BASE_DIR / 'db.sqlite3',
+    #}
 }
 
 # Password validation
@@ -134,3 +143,5 @@ EMAIL_HOST_USER = 'blog'
 EMAIL_HOST_PASSWORD = 'sule@sendgrid123'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+# AUTH_USER_MODEL = 'accounts.CustomUser'
