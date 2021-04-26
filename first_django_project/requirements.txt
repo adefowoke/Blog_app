@@ -11,3 +11,4 @@ sqlparse==0.4.1
 #sqlparse @ file:///tmp/build/80754af9/sqlparse_1602184451250/work
 whitenoise==5.1.0
 #asgiref @ file:///tmp/build/80754af9/asgiref_1617740417847/work
+python==3.9.2
