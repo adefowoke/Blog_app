@@ -1,8 +1,9 @@
-asgiref @ file:///tmp/build/80754af9/asgiref_1617740417847/work
+asgiref==3.3.1
 certifi==2020.12.5
-Django @ file:///tmp/build/80754af9/django_1617740316746/work
+Django==3.2
+#Django @ file:///tmp/build/80754af9/django_1617740316746/work
 gunicorn==19.9.0
 psycopg2 @ file:///tmp/build/80754af9/psycopg2_1612298595717/work
 pytz @ file:///tmp/build/80754af9/pytz_1612215392582/work
-sqlparse @ file:///tmp/build/80754af9/sqlparse_1602184451250/work
+#sqlparse @ file:///tmp/build/80754af9/sqlparse_1602184451250/work
 whitenoise==5.1.0
